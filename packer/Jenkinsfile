@@ -15,7 +15,7 @@ spec:
     name: packer
     '''
 
-def kaizen = env.BUILD_NUMBER
+def apple_devops_jenkins = env.BUILD_NUMBER
 
 
 if (env.BRANCH_NAME == "main") {
@@ -48,7 +48,7 @@ podTemplate(cloud: 'kubernetes', label: 'packer', yaml: template) {
     stage ("Packer Build") {
         sh """
         packer init ./packer
-        packer build -var 'jenkins_build_number=${kaizen}' packer/packer.pkr.hcl
+        packer build -var 'jenkins_build_number=${apple_devops_jenkins}' packer/packer.pkr.hcl
         """
     }
     }
