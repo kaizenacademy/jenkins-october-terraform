@@ -33,14 +33,15 @@ stage("Docker Build"){
 
 sh """
 cd docker
-docker build -t ${DOCKER_USER}/test:0.0.2 .
+docker build -t ${DOCKER_USER}/test:0.0.3 .
 """
 }
 stage("Docker Push"){
 sh """
 docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
-docker push ${DOCKER_USER}/test:0.0.2
+docker push ${DOCKER_USER}/test:0.0.3
 """
+build 'helm'
 }
 }
 
