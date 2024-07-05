@@ -41,7 +41,6 @@ sh """
 docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
 docker push ${DOCKER_USER}/test:0.0.3
 """
-build 'helm'
 }
 }
 
